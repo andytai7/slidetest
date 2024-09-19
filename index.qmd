@@ -1,114 +1,104 @@
 ---
-title: "Quarto Presentation with Sub-sections"
-author: "Your Name"
-format: revealjs
+title: "Creating Slides in RMarkdown, Quarto, and Jupyter Notebooks"
+author: "Andy Tai"
+format: 
+  revealjs: 
+    theme: night  # Theme for a consistent look
+    transition: fade  # Smooth transitions
 ---
 
-# Quarto
+# Introduction
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations, see <https://quarto.org/docs/presentations/>.
-
-## Sub-section: Introduction
-
-Quarto documents provide a flexible and unified approach to document creation, blending code and content seamlessly.
+In this presentation, we'll explore how to create slides using \*\*reveal.js\*\*, \*\*xaringan\*\*, and \*\*Jupyter Rise\*\*, and how to upload them to GitHub.
 
 ------------------------------------------------------------------------
 
-# Bullets
+## RMD and Quarto with Reveal.js
 
-When you click the **Render** button, a document will be generated that includes:
+## Step 1: Create a Repository
 
--   Content authored with markdown
--   Output from executable code
+[-]{.underline} Create a new GitHub repository or use an existing one (e.g., from your lab). [-]{.underline} Clone the repository locally using \*\*RStudio\*\* by creating a new \`.Rproj\` file.
 
-------------------------------------------------------------------------
+## Step 2: Install Required Packages
 
-## Sub-section: Bullet Benefits
+Install the necessary packages in R:
 
--   Use markdown for easy content creation.
--   Seamlessly include code output in your slides.
+\`\`\`r install.packages(c('xaringan', 'revealjs'))
 
-------------------------------------------------------------------------
+## Rmarkdown with revealJS
+![](img/rmarkdown.png)
 
-# Code
+This should give you this in this YAML header: 
 
-When you click the **Render** button, a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
+```{YAML}
+output: revealjs::revealjs_presentation
 ```
 
-## Tables
+## Quarto with Revealjs
 
-Here is an example table:
+![](img/quarto.png)
 
-| Name    | Age | Occupation     |
-|---------|-----|----------------|
-| Alice   | 25  | Data Scientist |
-| Bob     | 30  | Statistician   |
-| Charlie | 35  | Professor      |
+This should give you this in this YAML header:
 
-------------------------------------------------------------------------
-
-## Math Equations
-
-You can include mathematical equations:
-
-$$
-E = mc^2
-$$
-
-------------------------------------------------------------------------
-
-## Slide 6: Quotes
-
-> "This is an example of a block quote."
-
-------------------------------------------------------------------------
-
-## Slide 7: Images
-
-You can embed images:
-
-![](img/images.png)
-
-------------------------------------------------------------------------
-
-## Slide 8: Columns (Reveal.js Only)
-
-::: columns
-::: {.column style="width: 50%;"}
-This is the left column.
-:::
-
-::: {.column style="width: 50%;"}
-This is the right column.
-:::
-:::
-
-------------------------------------------------------------------------
-
-## Slide 9: Transition Effects
-
-This slide uses the `fade` transition. You can change transitions in the `format` section of the YAML header.
-
-------------------------------------------------------------------------
-
-## Slide 10: Interactive Plot
-
-```{r}
-library(plotly)
-plot_ly(data = iris, x = ~Sepal.Length, y = ~Sepal.Width, color = ~Species)
+```{YAML}
+format:
+  revealjs:
+    theme: night
 ```
 
-## Slide 11: Incremental Lists
+## Rmarkdown with Xarrigan
 
-You can create incremental bullet points like this:
+![](img/RMDX.png)
 
-```         
-Point 1
-Point 2
-Point 3
-    Sub-point 1
-    Sub-point 2
+The YAML header should be thsi:
+
+```{YAML}
+output: xaringan::moon_reader
 ```
+
+# Uploading slides onto github. 
+
+## Rename your files 
+Name the qmd, or rmd file that you want to render on github as index.qmd or index.rmd. 
+
+Render, which will create a html file. 
+
+## Select directory to render slides on github    
+Go to gihub and select setting in your project repository. 
+Select pages, and select build and deploy from branch main and in root. 
+
+![](img/github.png)
+
+
+# Final step
+
+## push your changes and you are done! 
+
+
+
+Press H on xarrigan to see the short cuts and P is presenter notes. S in reveal.js is the presenter notes. 
+
+# Jupyter notebook prsentation 
+
+## Install jupyter rise
+
+```{bash}
+pip install jupyterlab_rise
+```
+
+## Create Jupyter notebook    
+Open a new Jupyter notebook. Each code cell will serve as a slide in the presentation.
+Add content, code, and markdown for each slide.
+
+## Present
+
+In Jupyter, click the presenter button (top-right corner) to switch to presentation mode using RISE.
+
+# End notes
+End Notes
+Presenter Notes
+
+    xaringan: Press H to see the shortcuts. P is for presenter notes.
+    reveal.js: Press S to open the presenter notes view.
+    Jupyter RISE: Press T to open presenter notes.
+

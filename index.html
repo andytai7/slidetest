@@ -7,11 +7,11 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.56">
 
-  <meta name="author" content="Your Name">
-  <title>Quarto Presentation with Sub-sections</title>
+  <meta name="author" content="Andy Tai">
+  <title>Creating Slides in RMarkdown, Quarto, and Jupyter Notebooks</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -320,157 +385,113 @@
       margin-right: 0; 
     }
   </style>
-  <link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-  <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="index_files/libs/plotly-binding-4.10.4/plotly.js"></script>
-  <script src="index_files/libs/typedarray-0.1/typedarray.min.js"></script>
-  <script src="index_files/libs/jquery-3.5.1/jquery.min.js"></script>
-  <link href="index_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-  <script src="index_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
-  <link href="index_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
-  <script src="index_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Quarto Presentation with Sub-sections</h1>
+  <h1 class="title">Creating Slides in RMarkdown, Quarto, and Jupyter Notebooks</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Your Name 
+Andy Tai 
 </div>
 </div>
 </div>
 
 </section>
 <section>
-<section id="quarto" class="title-slide slide level1 center">
-<h1>Quarto</h1>
-<p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations, see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
+<p>In this presentation, we’ll explore how to create slides using **reveal.js**, **xaringan**, and **Jupyter Rise**, and how to upload them to GitHub.</p>
 </section>
-<section id="sub-section-introduction" class="slide level2">
-<h2>Sub-section: Introduction</h2>
-<p>Quarto documents provide a flexible and unified approach to document creation, blending code and content seamlessly.</p>
+<section id="rmd-and-quarto-with-reveal.js" class="slide level2">
+<h2>RMD and Quarto with Reveal.js</h2>
 </section>
-<section class="slide level2">
+<section id="step-1-create-a-repository" class="slide level2">
+<h2>Step 1: Create a Repository</h2>
+<p><u>-</u> Create a new GitHub repository or use an existing one (e.g., from your lab). <u>-</u> Clone the repository locally using **RStudio** by creating a new `.Rproj` file.</p>
+</section>
+<section id="step-2-install-required-packages" class="slide level2">
+<h2>Step 2: Install Required Packages</h2>
+<p>Install the necessary packages in R:</p>
+<p>```r install.packages(c(‘xaringan’, ‘revealjs’))</p>
+</section>
+<section id="rmarkdown-with-revealjs" class="slide level2">
+<h2>Rmarkdown with revealJS</h2>
 
+<img data-src="img/rmarkdown.png" class="r-stretch"><p>This should give you this in this YAML header:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>output: revealjs::revealjs_presentation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quarto-with-revealjs" class="slide level2">
+<h2>Quarto with Revealjs</h2>
+
+<img data-src="img/quarto.png" class="r-stretch"><p>This should give you this in this YAML header:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>format:</span>
+<span id="cb2-2"><a href=""></a>  revealjs:</span>
+<span id="cb2-3"><a href=""></a>    theme: night</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rmarkdown-with-xarrigan" class="slide level2">
+<h2>Rmarkdown with Xarrigan</h2>
+
+<img data-src="img/RMDX.png" class="r-stretch"><p>The YAML header should be thsi:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {YAML} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>output: xaringan::moon_reader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
-<section id="bullets" class="title-slide slide level1 center">
-<h1>Bullets</h1>
-<p>When you click the <strong>Render</strong> button, a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
-</section>
-<section id="sub-section-bullet-benefits" class="slide level2">
-<h2>Sub-section: Bullet Benefits</h2>
-<ul>
-<li>Use markdown for easy content creation.</li>
-<li>Seamlessly include code output in your slides.</li>
-</ul>
-</section>
-<section class="slide level2">
+<section id="uploading-slides-onto-github." class="title-slide slide level1 center">
+<h1>Uploading slides onto github.</h1>
 
+</section>
+<section id="rename-your-files" class="slide level2">
+<h2>Rename your files</h2>
+<p>Name the qmd, or rmd file that you want to render on github as index.qmd or index.rmd.</p>
+<p>Render, which will create a html file.</p>
+</section>
+<section id="select-directory-to-render-slides-on-github" class="slide level2">
+<h2>Select directory to render slides on github</h2>
+<p>Go to gihub and select setting in your project repository. Select pages, and select build and deploy from branch main and in root.</p>
+
+<img data-src="img/github.png" class="r-stretch"></section></section>
+<section>
+<section id="final-step" class="title-slide slide level1 center">
+<h1>Final step</h1>
+
+</section>
+<section id="push-your-changes-and-you-are-done" class="slide level2">
+<h2>push your changes and you are done!</h2>
+<p>Press H on xarrigan to see the short cuts and P is presenter notes. S in reveal.js is the presenter notes.</p>
 </section></section>
 <section>
-<section id="code" class="title-slide slide level1 center">
-<h1>Code</h1>
-<p>When you click the <strong>Render</strong> button, a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-</section>
-<section id="tables" class="slide level2">
-<h2>Tables</h2>
-<p>Here is an example table:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Age</th>
-<th>Occupation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Alice</td>
-<td>25</td>
-<td>Data Scientist</td>
-</tr>
-<tr class="even">
-<td>Bob</td>
-<td>30</td>
-<td>Statistician</td>
-</tr>
-<tr class="odd">
-<td>Charlie</td>
-<td>35</td>
-<td>Professor</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="math-equations" class="slide level2">
-<h2>Math Equations</h2>
-<p>You can include mathematical equations:</p>
-<p><span class="math display">\[
-E = mc^2
-\]</span></p>
-</section>
-<section id="slide-6-quotes" class="slide level2">
-<h2>Slide 6: Quotes</h2>
-<blockquote>
-<p>“This is an example of a block quote.”</p>
-</blockquote>
-</section>
-<section id="slide-7-images" class="slide level2">
-<h2>Slide 7: Images</h2>
-<p>You can embed images:</p>
+<section id="jupyter-notebook-prsentation" class="title-slide slide level1 center">
+<h1>Jupyter notebook prsentation</h1>
 
-<img data-src="img/images.png" class="r-stretch"></section>
-<section id="slide-8-columns-reveal.js-only" class="slide level2">
-<h2>Slide 8: Columns (Reveal.js Only)</h2>
-<div class="columns">
-<div class="column" style="width: 50%;">
-<p>This is the left column.</p>
-</div><div class="column" style="width: 50%;">
-<p>This is the right column.</p>
-</div></div>
 </section>
-<section id="slide-9-transition-effects" class="slide level2">
-<h2>Slide 9: Transition Effects</h2>
-<p>This slide uses the <code>fade</code> transition. You can change transitions in the <code>format</code> section of the YAML header.</p>
+<section id="install-jupyter-rise" class="slide level2">
+<h2>Install jupyter rise</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>pip install jupyterlab_rise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="slide-10-interactive-plot" class="slide level2">
-<h2>Slide 10: Interactive Plot</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-a51fc7ed5541a1551e47" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-a51fc7ed5541a1551e47">{"x":{"visdat":{"f801935a76f":["function () ","plotlyVisDat"]},"cur_data":"f801935a76f","attrs":{"f801935a76f":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20]}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Sepal.Length"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Sepal.Width"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[5.0999999999999996,4.9000000000000004,4.7000000000000002,4.5999999999999996,5,5.4000000000000004,4.5999999999999996,5,4.4000000000000004,4.9000000000000004,5.4000000000000004,4.7999999999999998,4.7999999999999998,4.2999999999999998,5.7999999999999998,5.7000000000000002,5.4000000000000004,5.0999999999999996,5.7000000000000002,5.0999999999999996,5.4000000000000004,5.0999999999999996,4.5999999999999996,5.0999999999999996,4.7999999999999998,5,5,5.2000000000000002,5.2000000000000002,4.7000000000000002,4.7999999999999998,5.4000000000000004,5.2000000000000002,5.5,4.9000000000000004,5,5.5,4.9000000000000004,4.4000000000000004,5.0999999999999996,5,4.5,4.4000000000000004,5,5.0999999999999996,4.7999999999999998,5.0999999999999996,4.5999999999999996,5.2999999999999998,5],"y":[3.5,3,3.2000000000000002,3.1000000000000001,3.6000000000000001,3.8999999999999999,3.3999999999999999,3.3999999999999999,2.8999999999999999,3.1000000000000001,3.7000000000000002,3.3999999999999999,3,3,4,4.4000000000000004,3.8999999999999999,3.5,3.7999999999999998,3.7999999999999998,3.3999999999999999,3.7000000000000002,3.6000000000000001,3.2999999999999998,3.3999999999999999,3,3.3999999999999999,3.5,3.3999999999999999,3.2000000000000002,3.1000000000000001,3.3999999999999999,4.0999999999999996,4.2000000000000002,3.1000000000000001,3.2000000000000002,3.5,3.6000000000000001,3,3.3999999999999999,3.5,2.2999999999999998,3.2000000000000002,3.5,3.7999999999999998,3,3.7999999999999998,3.2000000000000002,3.7000000000000002,3.2999999999999998],"type":"scatter","mode":"markers","name":"setosa","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[7,6.4000000000000004,6.9000000000000004,5.5,6.5,5.7000000000000002,6.2999999999999998,4.9000000000000004,6.5999999999999996,5.2000000000000002,5,5.9000000000000004,6,6.0999999999999996,5.5999999999999996,6.7000000000000002,5.5999999999999996,5.7999999999999998,6.2000000000000002,5.5999999999999996,5.9000000000000004,6.0999999999999996,6.2999999999999998,6.0999999999999996,6.4000000000000004,6.5999999999999996,6.7999999999999998,6.7000000000000002,6,5.7000000000000002,5.5,5.5,5.7999999999999998,6,5.4000000000000004,6,6.7000000000000002,6.2999999999999998,5.5999999999999996,5.5,5.5,6.0999999999999996,5.7999999999999998,5,5.5999999999999996,5.7000000000000002,5.7000000000000002,6.2000000000000002,5.0999999999999996,5.7000000000000002],"y":[3.2000000000000002,3.2000000000000002,3.1000000000000001,2.2999999999999998,2.7999999999999998,2.7999999999999998,3.2999999999999998,2.3999999999999999,2.8999999999999999,2.7000000000000002,2,3,2.2000000000000002,2.8999999999999999,2.8999999999999999,3.1000000000000001,3,2.7000000000000002,2.2000000000000002,2.5,3.2000000000000002,2.7999999999999998,2.5,2.7999999999999998,2.8999999999999999,3,2.7999999999999998,3,2.8999999999999999,2.6000000000000001,2.3999999999999999,2.3999999999999999,2.7000000000000002,2.7000000000000002,3,3.3999999999999999,3.1000000000000001,2.2999999999999998,3,2.5,2.6000000000000001,3,2.6000000000000001,2.2999999999999998,2.7000000000000002,3,2.8999999999999999,2.8999999999999999,2.5,2.7999999999999998],"type":"scatter","mode":"markers","name":"versicolor","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[6.2999999999999998,5.7999999999999998,7.0999999999999996,6.2999999999999998,6.5,7.5999999999999996,4.9000000000000004,7.2999999999999998,6.7000000000000002,7.2000000000000002,6.5,6.4000000000000004,6.7999999999999998,5.7000000000000002,5.7999999999999998,6.4000000000000004,6.5,7.7000000000000002,7.7000000000000002,6,6.9000000000000004,5.5999999999999996,7.7000000000000002,6.2999999999999998,6.7000000000000002,7.2000000000000002,6.2000000000000002,6.0999999999999996,6.4000000000000004,7.2000000000000002,7.4000000000000004,7.9000000000000004,6.4000000000000004,6.2999999999999998,6.0999999999999996,7.7000000000000002,6.2999999999999998,6.4000000000000004,6,6.9000000000000004,6.7000000000000002,6.9000000000000004,5.7999999999999998,6.7999999999999998,6.7000000000000002,6.7000000000000002,6.2999999999999998,6.5,6.2000000000000002,5.9000000000000004],"y":[3.2999999999999998,2.7000000000000002,3,2.8999999999999999,3,3,2.5,2.8999999999999999,2.5,3.6000000000000001,3.2000000000000002,2.7000000000000002,3,2.5,2.7999999999999998,3.2000000000000002,3,3.7999999999999998,2.6000000000000001,2.2000000000000002,3.2000000000000002,2.7999999999999998,2.7999999999999998,2.7000000000000002,3.2999999999999998,3.2000000000000002,2.7999999999999998,3,2.7999999999999998,3,2.7999999999999998,3.7999999999999998,2.7999999999999998,2.7999999999999998,2.6000000000000001,3,3.3999999999999999,3.1000000000000001,3,3.1000000000000001,3.1000000000000001,3.1000000000000001,2.7000000000000002,3.2000000000000002,3.2999999999999998,3,2.5,3,3.3999999999999999,3],"type":"scatter","mode":"markers","name":"virginica","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<section id="create-jupyter-notebook" class="slide level2">
+<h2>Create Jupyter notebook</h2>
+<p>Open a new Jupyter notebook. Each code cell will serve as a slide in the presentation. Add content, code, and markdown for each slide.</p>
 </section>
-<section id="slide-11-incremental-lists" class="slide level2">
-<h2>Slide 11: Incremental Lists</h2>
-<p>You can create incremental bullet points like this:</p>
-<pre><code>Point 1
-Point 2
-Point 3
-    Sub-point 1
-    Sub-point 2</code></pre>
+<section id="present" class="slide level2">
+<h2>Present</h2>
+<p>In Jupyter, click the presenter button (top-right corner) to switch to presentation mode using RISE.</p>
+</section></section>
+<section id="end-notes" class="title-slide slide level1 center">
+<h1>End notes</h1>
+<p>End Notes Presenter Notes</p>
+<pre><code>xaringan: Press H to see the shortcuts. P is for presenter notes.
+reveal.js: Press S to open the presenter notes view.
+Jupyter RISE: Press T to open presenter notes.</code></pre>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -627,7 +648,7 @@ Point 3
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -681,44 +702,6 @@ Point 3
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
