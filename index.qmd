@@ -1,0 +1,114 @@
+---
+title: "Quarto Presentation with Sub-sections"
+author: "Your Name"
+format: revealjs
+---
+
+# Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations, see <https://quarto.org/docs/presentations/>.
+
+## Sub-section: Introduction
+
+Quarto documents provide a flexible and unified approach to document creation, blending code and content seamlessly.
+
+------------------------------------------------------------------------
+
+# Bullets
+
+When you click the **Render** button, a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+------------------------------------------------------------------------
+
+## Sub-section: Bullet Benefits
+
+-   Use markdown for easy content creation.
+-   Seamlessly include code output in your slides.
+
+------------------------------------------------------------------------
+
+# Code
+
+When you click the **Render** button, a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Tables
+
+Here is an example table:
+
+| Name    | Age | Occupation     |
+|---------|-----|----------------|
+| Alice   | 25  | Data Scientist |
+| Bob     | 30  | Statistician   |
+| Charlie | 35  | Professor      |
+
+------------------------------------------------------------------------
+
+## Math Equations
+
+You can include mathematical equations:
+
+$$
+E = mc^2
+$$
+
+------------------------------------------------------------------------
+
+## Slide 6: Quotes
+
+> "This is an example of a block quote."
+
+------------------------------------------------------------------------
+
+## Slide 7: Images
+
+You can embed images:
+
+![](img/images.png)
+
+------------------------------------------------------------------------
+
+## Slide 8: Columns (Reveal.js Only)
+
+::: columns
+::: {.column style="width: 50%;"}
+This is the left column.
+:::
+
+::: {.column style="width: 50%;"}
+This is the right column.
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Slide 9: Transition Effects
+
+This slide uses the `fade` transition. You can change transitions in the `format` section of the YAML header.
+
+------------------------------------------------------------------------
+
+## Slide 10: Interactive Plot
+
+```{r}
+library(plotly)
+plot_ly(data = iris, x = ~Sepal.Length, y = ~Sepal.Width, color = ~Species)
+```
+
+## Slide 11: Incremental Lists
+
+You can create incremental bullet points like this:
+
+```         
+Point 1
+Point 2
+Point 3
+    Sub-point 1
+    Sub-point 2
+```
